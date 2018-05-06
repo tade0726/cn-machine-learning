@@ -11959,7 +11959,7 @@ Standard deviation of prices: $165340.28
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-1---&#22238;&#31572;&#65306;">&#38382;&#39064; 1 - &#22238;&#31572;&#65306;<a class="anchor-link" href="#&#38382;&#39064;-1---&#22238;&#31572;&#65306;">&#182;</a></h3><ul>
 <li>‘MEDV’ 会增大， 理由：根据经验单位面积一样的情况下，房间越多，说明户型设计更科学，拥有更大的实用价值</li>
-<li>‘MEDV’ 会降低， 理由：社区的收入水平，反映出社区的购买能力，也反映房价的水。另外，社区收入的高低也可能关联社区的犯罪情况，与房价水平呈正相关。</li>
+<li>‘MEDV’ 会降低， 理由：社区的收入水平，反映出社区的购买能力，也反映房价的水平。另外，社区收入的高低也可能关联社区的犯罪情况，与房价水平呈正相关。</li>
 <li>‘MEDV’ 会增大， 理由：教育资源是房价的加分因素，和房价呈正相关</li>
 </ul>
 
@@ -11993,24 +11993,10 @@ Standard deviation of prices: $165340.28
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">r2_score</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Import &#39;r2_score&#39;</span>
-
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">r2_score</span>
 
 <span class="k">def</span> <span class="nf">performance_metric</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">):</span>
@@ -12439,32 +12425,6 @@ Standard deviation of prices: $165340.28
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>GridSearchCV
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
