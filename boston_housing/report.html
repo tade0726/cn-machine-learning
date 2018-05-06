@@ -11803,7 +11803,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11845,6 +11845,20 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/opt/conda/lib/python3.6/site-packages/sklearn/cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  &#34;This module will be removed in 0.20.&#34;, DeprecationWarning)
+/opt/conda/lib/python3.6/site-packages/sklearn/learning_curve.py:22: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the functions are moved. This module will be removed in 0.20
+  DeprecationWarning)
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11881,23 +11895,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -11928,7 +11942,7 @@ Minimum price: $105000.00
 Maximum price: $1024800.00
 Mean price: $454342.94
 Median price $438900.00
-Standard deviation of prices: $165340.28
+Standard deviation of prices: $165171.13
 </pre>
 </div>
 </div>
@@ -12189,8 +12203,8 @@ Standard deviation of prices: $165340.28
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-3---&#22238;&#31572;:">&#38382;&#39064; 3 - &#22238;&#31572;:<a class="anchor-link" href="#&#38382;&#39064;-3---&#22238;&#31572;:">&#182;</a></h3><ul>
-<li>好处在于能校验模型在未知数据上的预测能力，避免过拟合</li>
-<li>假如使用部分训练集数据进行测试，很可能出现过拟合</li>
+<li>好处在于能校验模型在未知数据上的预测能力。模型在 <code>Test-data</code> 上的得分，能反映模型在真实数据上的预测能力，从而能反馈模型是否出现过拟合或欠拟合的情况；</li>
+<li>如果用模型已经见过的数据进行测试，则测试得分没法反映模型的泛化能力，测试得分高有可能是过拟合的结果，模型“记忆”了 <code>Train-data</code> 的信息，在真实数据中表现很可能欠佳</li>
 </ul>
 
 </div>
@@ -12431,13 +12445,57 @@ Standard deviation of prices: $165340.28
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-8---&#22238;&#31572;&#65306;">&#38382;&#39064; 8 - &#22238;&#31572;&#65306;<a class="anchor-link" href="#&#38382;&#39064;-8---&#22238;&#31572;&#65306;">&#182;</a></h3><ul>
-<li><p>K-folds 指的是，把数据随机均等分成 K 份，假设我们命名这个 K 份数据 为 No 1,2,..., K；第一次验证，选取前 1 ~ (K-1) 作为 Train set, no.K 作为 test set，得到 评分 score 1; 第二次验证，选取 （K-1） 作为 test set，其余数据作为 train set，得到，评分 score 2；如此类推，每一份数据成为测试集，其余数据作为训练集，进行 K 次 验证，得出 K 个 评分，这 K 个评分的平均值作为  K-folds 验证的最终得分。</p>
-</li>
-<li><p>Grid Search 通过 CV 对同一组超参数组合以不同的 train-test-set 数据进行多次拟合，再取平均 score 作为这一组合超参数的评分</p>
+<li><code>'K-folds'</code> 指的是，把全部的<code>'Training data'</code> 随机均等分成 K 份，假设我们命名这个 K 份数据 为 No <code>1,2,..., K</code>；第一次验证，选取前 <code>1 ~ (K-1)</code> 作为 <code>'Training data'</code>, no.<code>K</code> 作为 <code>'Validation data'</code>，得到 评分 <code>score-1</code>; 第二次验证，选取 <code>（K-1）</code> 作为 <code>'Validation data'</code>，其余数据作为 <code>'Training data'</code>，得到，评分 <code>score-2</code>；如此类推，轮流每一份数据成为<code>'Validation data'</code>，其余（k-1）份数据作 <code>'Training data'</code>，进行 K 次 验证，得出 K 个 <code>score</code>，这 K 个评分的平均值作为  K-folds 验证的最终 <code>score</code>。</li>
+</ul>
+<p>用表格表示如下：</p>
+<table>
+<thead><tr>
+<th>Fold</th>
+<th style="text-align:left">Training data</th>
+<th>Validation data</th>
+<th>Test data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">1~(K-1)</td>
+<td>K</td>
+<td>unchange/untouchable until training end</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left">1~(K-2), K</td>
+<td>(K-1)</td>
+<td>unchange/untouchable until training end</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:left">1~(K-3), (K-1), K</td>
+<td>(K-2)</td>
+<td>unchange/untouchable until training end</td>
+</tr>
+<tr>
+<td>...</td>
+<td style="text-align:left">...</td>
+<td>...</td>
+<td>unchange/untouchable until training end</td>
+</tr>
+<tr>
+<td>k</td>
+<td style="text-align:left">2~K</td>
+<td>1</td>
+<td>unchange/untouchable until training end</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li><p>Grid Search 通过 CV 对同一组超参数组合以不同的 <code>Training\Validation dataset</code> 数据进行多次拟合，再取平均 <code>score</code> 作为这一组合超参数的评分</p>
 </li>
 <li><p><code>'cv_results_'</code> 返回一个字典（类似 json），这个字典可以被 pandas 以 DataFrame 表格形式重新展示，不同的参数组合得出的 评分</p>
 </li>
-<li><p>K-Folds 能保证 Grid-search 是对全体数据集进行，而不是某一特定分割的子集，这样子能提高挑选出的超参数的鲁棒性</p>
+<li><p>K-Folds 能保证 Grid-search 是对全体<strong>训练数据集（training data）</strong>进行 <code>train/validation</code> 拟合，而不是某一特定分割的<code>train/validation</code> 子集，这样能提高挑选出的超参数的鲁棒性</p>
 </li>
 </ul>
 
@@ -12490,7 +12548,7 @@ Standard deviation of prices: $165340.28
     <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))}</span>
 
     <span class="c1"># TODO: Transform &#39;performance_metric&#39; into a scoring function using &#39;make_scorer&#39; </span>
-    <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">r2_score</span><span class="p">)</span>
+    <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
 
     <span class="c1"># TODO: Create the grid search cv object --&gt; GridSearchCV()</span>
     <span class="c1"># Make sure to include the right parameters in the object:</span>
